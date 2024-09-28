@@ -11,4 +11,4 @@ output:
 
 ## Project thoughts
 
-I am interested in exploring data related to gender - particularly with the perception of women in political/legal positions.
+I am interested in exploring data related to gender - particularly with the perception of women in political/legal positions. In the upcoming years, I forsee the focus of modern feminism moving beyond more substantial things such as equal pay and equal rights and towards the societal perception of women; which is much harder for a community to change. In our never-ending desire for social progression, using data, therefore, that analyzes the perception of women in positions of power would be an intriguing way to create a basis for our societal need to perceive women in a broader, more profound perspective.
