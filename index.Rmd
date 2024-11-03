@@ -13,3 +13,59 @@ I am interested in exploring data related to incarceration trends in the United 
 
 ## The Proposal
 Does the urbanicity, in conjunction with gender and racial composition, bolster incarceration rates across America counties? In this study, I plan to analyze the extent to which living in an American urban center, across gender and racial lines, enhances the incarceration rates in that particular place. I hypothesize that the more urban the county, the greater the incarceration rate will be. And I expect this increase will carry across all genders and races, though I do predict a disproportionately higher rate of incarceration for men over women, as well as for Black, Latinx and Native American individuals over Whites. Much research in the fields of Criminal Justice and Sociology have found patterns of increased incarceration for American cities, American ethnic centers, as opposed to suburban or rural areas of the country. The more economically diverse, ethnically diverse, opportunity diverse a place, the increased likelihood there is for conflict and the potential for incarceration. The data sample I will be using to conduct this analysis is comprised of American incarceration trends between 1983 and 2016. The data for this research came from the National Corrections Reporting Program (NCRP), the Deaths in Custody Reporting Program (DCRP), the Annual Survey of Jails (ASJ), the Census of Jails (COJ), the Census of State and Federal Adult Correctional Facilities (CAF), the FBI Uniform Crime Reporting Program (UCR), the Centers on Disease Control (CDC) - the National Vital Statistics System Data -, the U.S. Department of Agriculture, and the U.S. Census Bureau. My unit of analysis is the American prison system. The explanatory variables of interest are "urbanicity" which is rated on a scale of rural, small/mid, suburban, and urban. The co-explanatory variables will be gender (male or female) and race (White, Black, Latinx, or Native American). The outcome variable will be the incarceration rate (incarcerated individuals in a country per un-incarcerated individual) of American counties, which will be studied according to their determined urbanicity rating. The incarceration rate will also be studied for different combinations of gender and race in urban, versus small/mid, suburban and rural American communities. My hypothesis will be proven correct if urban centers have higher incarceration rates than small/mid, suburban, or rural counties and if those rates are disproportionately higher for men and Black, Latinx, and Native American members of those communities. My hypothesis would be disproven if the incarceration rate for urban centers is not different or less than that of urban counties in the United States. My hypothesis would also be disproven if gender and/or race have the opposite or no effect on the incarceration rates I have predicted. 
+
+## The Data 
+```{r}
+library(tidyverse)
+incarceration <- read_csv("data/incarceration_trends.csv")
+incarceration
+```
+
+## Data Visualization (1)
+
+Effect of Urbanicity on Prison Incarceration (by Gender) 
+
+```{r}
+incarceration <- incarceration |>
+  drop_na(urbanicity, total_prison_pop, total_pop, female_prison_pop, male_prison_pop)
+incarceration
+```
+
+```{r}
+incarceration <- incarceration |>
+  mutate(
+    Female = (female_prison_pop / female_pop_15to64) * 100,
+    Male = (male_prison_pop / female_pop_15to64) * 100,
+    urbanicity = recode(urbanicity, 
+                        "rural" = "Rural",
+                        "small/mid" = "Small/Midsize",
+                        "suburban" = "Suburban", 
+                        "urban" = "Urban"))
+
+gender_prison_plot <- incarceration |>
+  group_by(urbanicity) |> 
+  summarize(
+    n = n(),
+    Female = mean(Female, na.rm = TRUE),
+    Male = mean(Male, na.rm = TRUE), 
+    .groups = 'drop') |>
+  mutate(urban_prop = n / sum(n)) |>
+  pivot_longer(
+    cols = c(Female, Male),
+    names_to = "Gender",
+    values_to = "urban_proportion") |>
+  
+  ggplot(aes(x = urbanicity,
+             y = urban_proportion,
+             fill = Gender)) +
+  geom_bar(stat = "identity", 
+           position = "dodge") + 
+  labs(title = "Urbanicity & Prison Incarceration in the US (by Gender)", 
+       x = "Urbanicity of American Counties", 
+       y = "Incarceration Rate of Civilians Age 15-64 (%)") +
+  scale_fill_manual(values = c("Female" = "red4", 
+                               "Male" = "blue4"))
+gender_prison_plot
+```
+
+This bar graph displays the incarceration rate of American civilians between the ages of 15 and 64 as a function of urbanicity, filtered by gender, male or female. The urbanicity of a county in the United States was determined as either: Rural, Small/Midsize, Suburban, or Urban. The incarceration rate was here presented as a percent, calculated by finding the proportions within each urbanicity of both incarcerated males and females. The above bars represent what percent of which gender was incarcerated in each urbanicity. One of the most distinct relationships determined by this graph is that men are incarcerated at much higher rates than women are at all levels of urbanicity. There also are not drastic incarceration rates for women in any urbanicity. The male demographic seems to tell a significantly different story. Urban men are incarcerated at the highest rates, suburban men at the lowest. Rural men have the second highest incarceration rates, followed by small/midsize communities in third. Therefore, there seems to be a correlation between urbanicity and incarceration; not necessarily that a more or less populated place has higher or lower incarceration rates, but that each urbanicity on its own draws together unique circumstances that influence their male incarceration rates. 
