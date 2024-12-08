@@ -1,37 +1,128 @@
 ---
-title: "PS 270 Final Project"
+title: "Incarceration Trends Across American Counties"
 author: Taylor D'Andrea
-description: "Incarceration Trends Across American Counties"
+description: "The Final Report"
 output:
   distill::distill_article:
     self_contained: false
 ---
 
-### Project thoughts
+## Introduction 
 
-I am interested in exploring data related to incarceration trends in the United States. Over the course of American history, Criminal Justice policies have changed drastically and incarceration has increasingly accelerated. In my analysis, I'd like to conduct an analysis of the "who" and "why" of modern incarceration trends. 
+### Research Question 
+How has county type, in conjunction with gender and racial composition, impacted prison incarceration rates across American counties from 2006 to 2016?
 
-### The Proposal
-Does county type, in conjunction with gender and racial composition, bolster incarceration rates across America counties? In this study, I plan to analyze the extent to which living in an American urban center, across gender and racial lines, enhances the incarceration rates in that particular place. I hypothesize that the more urban the county, the greater the incarceration rate will be. And I expect this increase will carry across all genders and races, though I do predict a disproportionately higher rate of incarceration for men over women, as well as for Black, Latinx and Native American individuals over Whites. Much research in the fields of Criminal Justice and Sociology have found patterns of increased incarceration for American cities, American ethnic centers, as opposed to suburban or rural areas of the country. The more economically diverse, ethnically diverse, opportunity diverse a place, the increased likelihood there is for conflict and the potential for incarceration. The data sample I will be using to conduct this analysis is comprised of American incarceration trends between 1983 and 2016. The data for this research came from the National Corrections Reporting Program (NCRP), the Deaths in Custody Reporting Program (DCRP), the Annual Survey of Jails (ASJ), the Census of Jails (COJ), the Census of State and Federal Adult Correctional Facilities (CAF), the FBI Uniform Crime Reporting Program (UCR), the Centers on Disease Control (CDC) - the National Vital Statistics System Data -, the U.S. Department of Agriculture, and the U.S. Census Bureau. My unit of analysis is the American prison system. The explanatory variables of interest are "urbanicity" which is rated on a scale of rural, small/mid, suburban, and urban. The co-explanatory variables will be gender (male or female) and race (White, Black, Latinx, or Native American). The outcome variable will be the incarceration rate (incarcerated individuals in a country per un-incarcerated individual) of American counties, which will be studied according to their determined urbanicity rating. The incarceration rate will also be studied for different combinations of gender and race in urban, versus small/mid, suburban and rural American communities. My hypothesis will be proven correct if urban centers have higher incarceration rates than small/mid, suburban, or rural counties and if those rates are disproportionately higher for men and Black, Latinx, and Native American members of those communities. My hypothesis would be disproven if the incarceration rate for urban centers is not different or less than that of urban counties in the United States. My hypothesis would also be disproven if gender and/or race have the opposite or no effect on the incarceration rates I have predicted. 
+### Hypothesis 
+I hypothesize that the more urban an American county, the higher the prison incarceration rate for Americans living in that county will be; as urban nature increases, prison incarceration rates will increase. And I expect that this trend of higher prison incarceration rate for more urban counties will exist across all genders and races. However, I predict a disproportionately higher rate of prison incarceration for men over women, as well as for Black, Latinx and Native American individuals over White and Asian Americans as the urban nature of American counties increases. Over a 10-year time frame From 2006 to 2016, I predict incarceration rates for all the aforementioned groups to have decreased over time. 
+
+### Importance 
+Over the course of American criminal history, Criminal Justice policies have changed drastically and prison incarceration, particularly in the late 20th and early 21st century, saw immense acceleration. However, the most current prison systems are supposedly seeing a decline in incarceration. The following study will work to analyze the "who", "when", and "where", as well as a potential "why" of these modern (2006 to 2016) American incarceration trends. 
+
+Analyzing the extent to which living in an American urban center, across gender and racial lines, enhances the prison incarceration rates in that particular place will face these questions. Much research in the fields of Criminal Justice and Sociology found in the late 1900s and early 2000s patterns of increased incarceration for American cities, American ethnic centers, as opposed to in more suburban or rural areas of the country. And though more modern 21st century prisons are seeing changes in incarceration rates, disproportionate incarceration for particular places and particular groups of people has remained consistent. This is likely caused by how more economically, ethnically, and opportunity diverse a place, the increased likelihood there is for both unrest and conflict, therefore opening the door for potential adjudication. 
+
+Research on "who" is being incarcerated and "where", as well as "why" they are being incarcerated is an important first step in understanding how American society can work to both continue lessening rates of incarceration and improving the effectiveness of punishment. Incarcerated Americans lose access to civil responsibilities, become estranged from their families and society more broadly, endure mental and physical illness, and often end up back in prison after release. Though incarceration attempts to hinder crime, Americans, especially those of male and minority communities, are being incarcerated consistently and disproportionately. Therefore, some part of the system is broken. However, if researchers can come to understand "who" is being incarcerated and "where" they are coming from, we can begin to comprehend the "why" of prison incarceration, which begins the most pivotal work on "how" we are going to further fix it moving into the future. 
 
 ## The Data 
+
+### Description of the Data Source 
+This study will use the Incarceration Trends Dataset (2020) from the Vera Institute of Justice as my data source. This source draws together a multitude of studies that analyze incarceration trends in the American prison system between 1983 and 2016. The aforementioned studies are sourced from: the National Corrections Reporting Program (NCRP), the Deaths in Custody Reporting Program (DCRP), the Annual Survey of Jails (ASJ), the Census of Jails (COJ), the Census of State and Federal Adult Correctional Facilities (CAF), the FBI Uniform Crime Reporting Program (UCR), the Centers on Disease Control (CDC) (the National Vital Statistics System Data), the U.S. Department of Agriculture, and the U.S. Census Bureau. The studies contain information by American county on several variables, including: county populations, county types, prison populations, as well as general census and prison census data on both gender and racial identity. 
+
+#### Measuring the Independent & Dependent Variables 
+As mentioned, the independent and dependent variables in the following study are sourced from census prison records and general population census data collection. The main independent variable of interest in this study, is county type, referred to as "urbanicity" in the coding. County type is rated on a scale of Rural, Small/Midsize, Suburban, or Urban. The co-independent variables of interest will be Gender (Male or Female) and Race (Asian, Black, Latinx, Native American, or White). 
+
+The dependent variable is the incarceration rate, which is calculated as the proportion of incarcerated individuals from an American county (based on their Gender of Race group) per un-incarcerated individuals (between ages 15 to 64) living in that same county (based of the same Gender or Race group). (The age group of 15 to 64 was chosen to depict the proportion of incarceration across both the most common and most eligible prison-age population.)
+
+It is also important to note that all representations in the following study will either be presented as being data from either 2000 or 2016, a 10-year time frame of modern American prisons, presented for comparison. 
+
+#### Plots Summarizing the Dependent Variable, 2006 & 2016 
+
 ```{r}
+# Loading the necessary packages:
 library(tidyverse)
+library(broom)
+
+# Loading the dataset:
 incarceration <- read_csv("data/incarceration_trends.csv")
-incarceration
-```
 
-### Data Visualization (1)
-
-Effect of American County Type on Prison Incarceration (by Gender) 
-
-```{r}
+# Dropping N/As from the data:
 incarceration <- incarceration |>
-  drop_na(urbanicity, total_prison_pop, total_pop, female_prison_pop, male_prison_pop, female_pop_15to64, male_pop_15to64)
-incarceration
+  drop_na(urbanicity, total_prison_pop, total_pop_15to64)
+
+# Creating the `prison_prop` proportion variable and re-coding the `urbanicity` labels: 
+incarceration <- incarceration |>
+  mutate(prison_prop = (total_prison_pop / total_pop_15to64) * 100,
+         urbanicity = recode(urbanicity, 
+                             "rural" = "Rural",
+                             "small/mid" = "Small/Midsize",
+                             "suburban" = "Suburban", 
+                             "urban" = "Urban")) 
+
+# Creating a barplot of the relationship between American county type and the incarceration rates for Americans from year 2006: 
+prison_pop_plot_06 <- incarceration |>
+  filter(year == 2006) |> 
+  group_by(urbanicity) |> 
+  summarize(
+    n = n(),
+    prison_prop = mean(prison_prop, na.rm = TRUE),
+    .groups = 'drop') |>
+  mutate(urban_prop = n / sum(n)) |>
+  pivot_longer(
+    cols = prison_prop,
+    names_to = "Total Population",
+    values_to = "urban_proportion") |>
+ 
+  ggplot(aes(x = urbanicity,
+             y = urban_proportion)) +
+  geom_bar(stat = "identity",
+           position = "dodge", 
+           fill = "maroon4") +
+  theme_bw() +
+  labs(title = "County Type & Prison Incarceration in the US in 2006", 
+       x = "American County Types", 
+       y = "Proportional Incarceration Rate of Civilians Age 15-64 (%)", 
+       caption = "Source: Vera Institute of Justice, 2020")
+prison_pop_plot_06
+
+# Creating a barplot of the relationship between American county type and the incarceration rates for Americans from year 2016: 
+prison_pop_plot_16 <- incarceration |>
+  filter(year == 2016) |> 
+  group_by(urbanicity) |> 
+  summarize(
+    n = n(),
+    prison_prop = mean(prison_prop, na.rm = TRUE),
+    .groups = 'drop') |>
+  mutate(urban_prop = n / sum(n)) |>
+  pivot_longer(
+    cols = prison_prop,
+    names_to = "Total Population",
+    values_to = "urban_proportion") |>
+ 
+  ggplot(aes(x = urbanicity,
+             y = urban_proportion)) +
+  geom_bar(stat = "identity",
+           position = "dodge", 
+           fill = "maroon4") +
+  theme_bw() +
+  labs(title = "County Type & Prison Incarceration in the US in 2016", 
+       x = "American County Types", 
+       y = "Proportional Incarceration Rate of Civilians Age 15-64 (%)", 
+       caption = "Source: Vera Institute of Justice, 2020")
+prison_pop_plot_16
 ```
 
+#### The Research Design
+This study will be using a cross-sectional research design; implicating two snapshots of incarceration trends data, from both 1983 and 2016. 
+
+## The Results 
+
+### Data Visualizations Pt.1: Effect of American County Type on Prison Incarceration (by Gender) in 2006 & 2016
+
 ```{r}
+# Dropping N/As from the data:
+incarceration <- incarceration |>
+  drop_na(female_prison_pop, male_prison_pop, female_pop_15to64, male_pop_15to64)
+
+# Creating the `Female` and `Male` proportion variables and re-coding the `urbanicity` labels: 
 incarceration <- incarceration |>
   mutate(
     Female = (female_prison_pop / female_pop_15to64) * 100,
@@ -42,7 +133,9 @@ incarceration <- incarceration |>
                         "suburban" = "Suburban", 
                         "urban" = "Urban"))
 
-gender_prison_plot <- incarceration |>
+# Creating a barplot of the relationship between American county type and the incarceration rates for both Female and Male Americans from year 2006: 
+gender_prison_plot_06 <- incarceration |>
+  filter(year == 2006) |>
   group_by(urbanicity) |> 
   summarize(
     n = n(),
@@ -61,24 +154,51 @@ gender_prison_plot <- incarceration |>
   geom_bar(stat = "identity", 
            position = "dodge") + 
   theme_bw() +
-  labs(title = "County Type & Prison Incarceration in the US (by Gender)", 
+  labs(title = "County Type & Prison Incarceration in the US (by Gender) in 2006", 
        x = "American County Types", 
        y = "Proportional Incarceration Rate of Civilians Age 15-64 (%)", 
        caption = "Source: Vera Institute of Justice, 2020") +
   scale_fill_manual(values = c("Female" = "red4", 
                                "Male" = "blue4"))
-gender_prison_plot
+gender_prison_plot_06
+
+# Creating a barplot of the relationship between American county type and the incarceration rates for both Female and Male Americans from year 2016: 
+gender_prison_plot_16 <- incarceration |>
+  filter(year == 2016) |>
+  group_by(urbanicity) |> 
+  summarize(
+    n = n(),
+    Female = mean(Female, na.rm = TRUE),
+    Male = mean(Male, na.rm = TRUE), 
+    .groups = 'drop') |>
+  mutate(urban_prop = n / sum(n)) |>
+  pivot_longer(
+    cols = c(Female, Male),
+    names_to = "Gender",
+    values_to = "urban_proportion") |>
+  
+  ggplot(aes(x = urbanicity,
+             y = urban_proportion,
+             fill = Gender)) +
+  geom_bar(stat = "identity", 
+           position = "dodge") + 
+  theme_bw() +
+  labs(title = "County Type & Prison Incarceration in the US (by Gender) in 2016", 
+       x = "American County Types", 
+       y = "Proportional Incarceration Rate of Civilians Age 15-64 (%)", 
+       caption = "Source: Vera Institute of Justice, 2020") +
+  scale_fill_manual(values = c("Female" = "red4", 
+                               "Male" = "blue4"))
+gender_prison_plot_16
 ```
 
-This bar graph displays the incarceration rate of American civilians between the ages of 15 and 64 as a function of county type, filtered by gender, male or female. The county type of American counties was determined as being either: Rural, Small/Midsize, Suburban, or Urban. The incarceration rate is here presented as a percent, calculated by finding the proportions within each county type of both incarcerated males and females. The above bars represent what percent of which gender was incarcerated in each county type. 
+#### Interpretations on Data Visualizations Pt.1
+[here]
 
-One of the most distinct relationships determined by this graph is that men are incarcerated at much higher rates than women are at all levels of county type. There are not drastic incarceration rates for women in any county type. The male demographic seems to tell a significantly different story. Urban men are incarcerated at the highest rates, suburban men at the lowest. Rural men have the second highest incarceration rates, followed by small/midsize communities in third. For women, the order of highest rates of incarceration to lowest goes as follows: Rural, Small/Midsize, Urban, then Suburban. Overall, there seems to be a correlation between county type and incarceration; not necessarily that a more or less populated place has higher or lower incarceration rates, but that each county type on its own draws together unique circumstances that influence their incarceration rates. 
-
-### Data Visualization (2)
-
-Effect of American County Type on Prison Incarceration (by Race)
+### Data Visualizations Pt.2: Effect of American County Type on Prison Incarceration (by Race) in 2006 & 2016
 
 ```{r}
+# Filtering the population data to use data only from counties with the varying racial populations, creating the `Asian`, `Black`, `Latinx`, `Native` (Native American), and `White` proportion variables, and re-coding the `urbanicity` labels: 
 incarceration <- incarceration |>
   filter(aapi_prison_pop > 0, aapi_pop_15to64 > 0, 
          black_prison_pop > 0, black_pop_15to64 > 0, 
@@ -90,9 +210,17 @@ incarceration <- incarceration |>
     Black = (black_prison_pop / black_pop_15to64) * 100, 
     Latinx = (latinx_prison_pop / latinx_pop_15to64) * 100,
     Native = (native_prison_pop / native_pop_15to64) * 100,
-    White = (white_prison_pop / white_pop_15to64) * 100)
+    White = (white_prison_pop / white_pop_15to64) * 100, 
+    urbanicity = recode(urbanicity, 
+                        "rural" = "Rural",
+                        "small/mid" = "Small/Midsize",
+                        "suburban" = "Suburban", 
+                        "urban" = "Urban"))
+  
 
-race_prison_plot <- incarceration |>
+# Creating a barplot of the relationship between American county type and the incarceration rates for Asian, Black, Latinx, Native and White Americans from year 2006: 
+race_prison_plot_06 <- incarceration |>
+  filter(year == 2006) |>
   group_by(urbanicity) |> 
   summarize(
     n = n(),
@@ -109,12 +237,12 @@ race_prison_plot <- incarceration |>
     values_to = "urban_proportion") |>
   
   ggplot(mapping = aes(x = urbanicity,
-                               y = urban_proportion,
-                               fill = Race)) +
+                       y = urban_proportion,
+                       fill = Race)) +
   geom_bar(stat = "identity", 
            position = "dodge") + 
   theme_bw() +
-  labs(title = "County Type & Prison Incarceration in the US (by Race)", 
+  labs(title = "County Type & Prison Incarceration in the US (by Race) in 2006", 
        x = "American County Types", 
        y = "Proportional Incarceration Rate of Civilians Age 15-64 (%)", 
        caption = "Source: Vera Institute of Justice, 2020") +
@@ -123,38 +251,185 @@ race_prison_plot <- incarceration |>
                                "Latinx" = "red4", 
                                "Native" = "green4",
                                "White" = "orange2"))
-race_prison_plot
+race_prison_plot_06
+
+# Creating a barplot of the relationship between American county type and the incarceration rates for Asian, Black, Latinx, Native and White Americans from year 2016: 
+race_prison_plot_16 <- incarceration |>
+  filter(year == 2016) |>
+  group_by(urbanicity) |> 
+  summarize(
+    n = n(),
+    Asian = mean(Asian, na.rm = TRUE),
+    Black = mean(Black, na.rm = TRUE), 
+    Latinx = mean(Latinx, na.rm = TRUE), 
+    Native = mean(Native, na.rm = TRUE),
+    White = mean(White, na.rm = TRUE), 
+    .groups = 'drop') |>
+  mutate(urban_prop = n / sum(n)) |>
+  pivot_longer(
+    cols = c(Asian, Black, Latinx, Native, White),
+    names_to = "Race",
+    values_to = "urban_proportion") |>
+  
+  ggplot(mapping = aes(x = urbanicity,
+                       y = urban_proportion,
+                       fill = Race)) +
+  geom_bar(stat = "identity", 
+           position = "dodge") + 
+  theme_bw() +
+  labs(title = "County Type & Prison Incarceration in the US (by Race) in 2016", 
+       x = "American County Types", 
+       y = "Proportional Incarceration Rate of Civilians Age 15-64 (%)", 
+       caption = "Source: Vera Institute of Justice, 2020") +
+  scale_fill_manual(values = c("Asian" = "violet",
+                               "Black" = "navy",
+                               "Latinx" = "red4", 
+                               "Native" = "green4",
+                               "White" = "orange2"))
+race_prison_plot_16
 ```
 
+#### Interpretations on Data Visualizations Pt.2
+[here]
+
+### Output for the Regressions of Interest 
+
+#### Female Regression Model
+```{r}
+# Filtering the data to `incarceration_filtered` to include only the data between 2006 and 2016: 
+incarceration_filtered <- incarceration |>
+  filter(year >= 2006 & year <=2016)
+
+# Creating the linear regression model for the `Female` group: 
+fit_female <- lm(Female ~ urbanicity, data = incarceration_filtered)
+
+# Tidying a regression table for the `Female` group: 
+fit_female |>
+  broom::tidy() |>
+  select(term, estimate) |>  
+  knitr::kable(digits = 2)
+```
+
+##### Interpretations of Female Regression Model
+[here]
+
+#### Male Regression Model 
+```{r}
+# Creating the linear regression model for the `Male` group: 
+fit_male <- lm(Male ~ urbanicity, data = incarceration_filtered)
+
+# Tidying a regression table for the `Male` group: 
+fit_male |>
+  broom::tidy() |>
+  select(term, estimate) |>  
+  knitr::kable(digits = 2)
+```
+
+##### Interpretations of Male Regression Model
+[here]
+
+#### Asian Regression Model
+```{r}
+# Creating the linear regression model for the `Asian` group: 
+fit_asian <- lm(Asian ~ urbanicity, data = incarceration_filtered)
+
+# Tidying a regression table for the `Asian` group: 
+fit_asian |>
+  broom::tidy() |>
+  select(term, estimate) |>  
+  knitr::kable(digits = 2)
+```
+
+##### Interpretations of Asian Regression Model
+[here]
+
+#### Black Regression Model
+```{r}
+# Creating the linear regression model for the `Black` group: 
+fit_black <- lm(Black ~ urbanicity, data = incarceration_filtered)
+
+# Tidying a regression table for the `Black` group: 
+fit_black |>
+  broom::tidy() |>
+  select(term, estimate) |>  
+  knitr::kable(digits = 2)
+```
+
+##### Interpretations of Black Regression Model
+[here]
+
+#### Latinx Regression Model 
+```{r}
+# Creating the linear regression model for the `Latinx` group: 
+fit_latinx <- lm(Latinx ~ urbanicity, data = incarceration_filtered)
+
+# Tidying a regression table for the `Latinx` group: 
+fit_latinx |>
+  broom::tidy() |>
+  select(term, estimate) |>  
+  knitr::kable(digits = 2)
+```
+
+##### Interpretations of Latinx Regression Model
+[here]
+
+#### Native American Regression Model 
+```{r}
+# Creating the linear regression model for the `Native` group: 
+fit_native <- lm(Native ~ urbanicity, data = incarceration_filtered)
+
+# Tidying a regression table for the `Native` group: 
+fit_native |>
+  broom::tidy() |>
+  select(term, estimate) |>  
+  knitr::kable(digits = 2)
+```
+
+##### Interpretations of Native American Regression Model
+[here]
+
+#### White Regression Model 
+```{r}
+# Creating the linear regression model for the `White` group: 
+fit_white <- lm(White ~ urbanicity, data = incarceration_filtered)
+
+# Tidying a regression table for the `White` group: 
+fit_white |>
+  broom::tidy() |>
+  select(term, estimate) |>  
+  knitr::kable(digits = 2)
+```
+
+##### Interpretations of White Regression Model
+[here]
+
+### Summative Interpretation 
+of the plots & of the regression (including interpreting the main coefficient of interest and describing if it is statistically significant and if we should interpret it causally)
+
+## Conclusion 
+
+(i) summarizing results and assessing the extent to which you find support for your hypothesis; you should interpret (in plain English) the main coefficient of interest in your regression. You should also comment on the statistical significance of the estimated coefficient and whether or not you believe the coefficient to represent a causal effect; (ii) describing limitations of the analysis and threats to inference (missing data, confounding, etc), and stating how you could improve your analysis if you had more time/money (improved data that would be useful to collect).
+
+*name code chunks* 
+
+*use a function not from the packages discussed in class* 
+
+# EXTRA THINGS: 
+
+VISUALIZATION 1: 
+This bar graph displays the incarceration rate of American civilians between the ages of 15 and 64 as a function of county type, filtered by gender, male or female. The county type of American counties was determined as being either: Rural, Small/Midsize, Suburban, or Urban. The incarceration rate is here presented as a percent, calculated by finding the proportions within each county type of both incarcerated males and females. The above bars represent what percent of which gender was incarcerated in each county type. 
+
+One of the most distinct relationships determined by this graph is that men are incarcerated at much higher rates than women are at all levels of county type. There are not drastic incarceration rates for women in any county type. The male demographic seems to tell a significantly different story. Urban men are incarcerated at the highest rates, suburban men at the lowest. Rural men have the second highest incarceration rates, followed by small/midsize communities in third. For women, the order of highest rates of incarceration to lowest goes as follows: Rural, Small/Midsize, Urban, then Suburban. Overall, there seems to be a correlation between county type and incarceration; not necessarily that a more or less populated place has higher or lower incarceration rates, but that each county type on its own draws together unique circumstances that influence their incarceration rates. 
+
+VISUALIZATION 2: 
 This bar graph displays the incarceration rate of American civilians between the ages of 15 and 64 as a function of county type, filtered by race, Asian, Black, Latinx, Native American, or White. Similarly to the first data visualization, the county type of American counties was determined as being either: Rural, Small/Midsize, Suburban, or Urban. The incarceration rate is here also presented as a percent, calculated by finding the proportions within each county type of incarcerated Asian, Black, Latinx, Native and White Americans. The bars above represent the percent at which each race was incarcerated in the different county types.
 
 The most distinct finding in this graph is how Black individuals are incarcerated at much higher rates than any other race in all county types. In Rural areas, Black and Native American individuals are incarcerated as significantly higher rates than both their Asian, Latin and white counterparts. In Small/Midsize, Suburban and Urban areas, Black individuals are incarcerated at the highest rates, followed by Native Americans, Latinx, White, then Asian individuals. Overall, minority communities are incarcerated at disproportionate rates across all county types. Similarly to the first data visualization, identity, race in this case, seems to have a profound impact on rates of incarceration, which a wider trend than county type alone. However, also similarly to the first data visualization, the degree of urbanization in different American county types does seem to create unique circumstances within itself that determines the rates at which different races are incarcerated.  
 
-### Preliminary Analysis of the Research Question 
-
-Research Question: Does county type, in conjunction with gender and racial composition, bolster incarceration rates across America counties?
+PRELIMINARY ANALYSIS OF THE RESEARCH QUESTION: 
 
 So far, this analysis appears to be drawing together the conclusion that identity is a greater factor on incarceration that the county type an American citizen is living in. In the Gender graph, men are consistently incarcerated more than women in every county type. In the Race graph, Black Americans are incarcerated at significantly higher rates compared to all other races in every county type. 
 
 Despite this, each county type does appear to be drawing together special circumstances that impact incarceration rates. In Rural communities, the incarceration rates are highest for men and women compared to all other county types. Also in Rural communities, Black, Native American, White and Asian communities see their highest rates of incarceration compared to all other county types. In Small/Midsize communities, men have the third highest and women have the second highest rates of incarceration. The rate of incarceration for Black Americans in Small/Midsize communities is nearly the same as their incarceration rate in Rural communities. This is also where the Latinx community faces their highest incarceration rates. In Suburban communities, there are the lowest incarceration rates for both men and women, as well as for Black, Latinx, White and Asian communities compared to all other county types. Urban communities see the second highest rate of incarceration for men and the second lowest for women. Black individuals are incarcerated at the highest rates, followed by Native Americans, Latinx, White, then Asian Americans. 
 
 All considered, though the broadest trends of incarceration are not entirely dependent on county type summatively, each county community type individually does seem to create certain circumstances that impacts the differences in their incarceration rates.
-
-
-## The Final Report
-
-### Introduction 
-an introduction where you introduce the research question and hypothesis and briefly describe why it is interesting; describe the research question and main hypothesis; describe why it is important. (1-2 paragraphs) (2pts)
-
-### The Data 
-a data section that briefly describes the data source, describes how the key dependent and independent variables are measured (e.g., a survey, statistical model, or expert coding), and also produces a plot that summarizes the dependent variable; you should note if your research design is cross-sectional (most projects will be of this type) or one of the other designs we discussed (randomized experiment, before-and-after, differences-in-differences); 2-3 paragraphs + plot visualizing main outcome of interest. (3pts)
-
-*include a confounding example with census division in this section that can be discussed throughout*
-
-*name code chunks*
-
-### The Results 
-a results section that contains a scatterplot, barplot, or boxplot of the main relationship of interest and output for the main regression of interest; plot of main analysis + regression output (needs informative labels, names with a small number of digits presented; use kable function) + 2-3 paragraphs of description and interpretation of the plots and regression (including interpreting the main coefficient of interest and describing if it is statistically significant and if we should interpret it causally). This section could be longer if you choose to include additional analyses. (8pts)
-
-### Conclusion 
-a brief (one paragraph) concluding section that summarizes your results, assesses the extent to which you find support for your hypothesis, describes limitations of your analysis and threats to inference, and states how your analysis could be improved (e.g., improved data that would be useful to collect); 1 paragraph (i) summarizing results and assessing the extent to which you find support for your hypothesis; you should interpret (in plain English) the main coefficient of interest in your regression. You should also comment on the statistical significance of the estimated coefficient and whether or not you believe the coefficient to represent a causal effect; (ii) describing limitations of the analysis and threats to inference (missing data, confounding, etc), and stating how you could improve your analysis if you had more time/money. (2pts)
