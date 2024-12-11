@@ -88,7 +88,7 @@ prison_pop_plot <- incarceration |>
            position = "dodge", 
            fill = "maroon4") +
   theme_bw() +
-  labs(title = "County Type & Prison Incarceration in the US from 1983-2016", 
+  labs(title = "County Type & Prison Incarceration in the US from 1970-2016", 
        x = "American County Types", 
        y = "Proportional Incarceration Rate of Civilians Age 15-64 (%)", 
        caption = "Source: Vera Institute of Justice, 2020")
