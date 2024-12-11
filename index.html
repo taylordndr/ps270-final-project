@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["data/incarceration_trends.csv","incarceration_trends-Codebook.pdf","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-1-1.png","index_files/figure-html5/unnamed-chunk-1-2.png","index_files/figure-html5/unnamed-chunk-2-1.png","index_files/figure-html5/unnamed-chunk-2-2.png","index_files/figure-html5/unnamed-chunk-3-1.png","index_files/figure-html5/unnamed-chunk-3-2.png","index_files/figure-html5/unnamed-chunk-4-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.28/header-attrs.js","index_files/header-attrs-2.29/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["data/incarceration_trends.csv","images/prison_pop_animation.gif","incarceration_trends-Codebook.pdf","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-1-1.png","index_files/figure-html5/unnamed-chunk-1-2.png","index_files/figure-html5/unnamed-chunk-2-1.png","index_files/figure-html5/unnamed-chunk-2-2.png","index_files/figure-html5/unnamed-chunk-3-1.png","index_files/figure-html5/unnamed-chunk-3-2.png","index_files/figure-html5/unnamed-chunk-4-1.png","index_files/figure-html5/unnamed-chunk-4-2.png","index_files/figure-html5/unnamed-chunk-5-1.png","index_files/figure-html5/unnamed-chunk-5-2.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.28/header-attrs.js","index_files/header-attrs-2.29/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","prison_pop_animation.gif"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1557,6 +1557,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>This study will use the Incarceration Trends Dataset (2020) from the Vera Institute of Justice as my data source. This source draws together a multitude of studies that analyze incarceration trends in the American prison system between 1983 and 2016. The aforementioned studies are sourced from: the National Corrections Reporting Program (NCRP), the Deaths in Custody Reporting Program (DCRP), the Annual Survey of Jails (ASJ), the Census of Jails (COJ), the Census of State and Federal Adult Correctional Facilities (CAF), the FBI Uniform Crime Reporting Program (UCR), the Centers on Disease Control (CDC) (the National Vital Statistics System Data), the U.S. Department of Agriculture, and the U.S. Census Bureau. The studies contain information by American county on several variables, including: county populations, county types, prison populations, as well as general census and prison census data on both gender and racial identity.</p>
 <h4 id="measuring-the-independent-dependent-variables">Measuring the Independent &amp; Dependent Variables</h4>
 <p>As mentioned, the independent and dependent variables in the following study are sourced from census prison records and general population census data collection. The main independent variable of interest in this study, is county type, referred to as “urbanicity” in the coding. County type is rated on a scale of Rural, Small/Midsize, Suburban, or Urban. The co-independent variables of interest will be Gender (Male or Female) and Race (Asian, Black, Latinx, Native American, or White).</p>
+<p><em>Note: No or minimal data was available for Non-Binary or Other Race categories within the Incarceration Trends Dataset; so these groups were not included in this study.</em></p>
 <p>The dependent variable is the incarceration rate, which is calculated as the proportion of incarcerated individuals from an American county (based on their Gender of Race group) per un-incarcerated individuals (between ages 15 to 64) living in that same county (based of the same Gender or Race group). (The age group of 15 to 64 was chosen to depict the proportion of incarceration across both the most common and most eligible prison-age population.)</p>
 <p>It is also important to note that all representations in the following study will either be presented as being data from either 2000 or 2016, a 10-year time frame of modern American prisons, presented for comparison.</p>
 <h4 id="plots-summarizing-the-dependent-variable-2006-2016">Plots Summarizing the Dependent Variable, 2006 &amp; 2016</h4>
@@ -1565,6 +1566,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Loading the necessary packages:</span></span>
 <span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
 <span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://broom.tidymodels.org/'>broom</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://modelsummary.com'>modelsummary</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://gganimate.com'>gganimate</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://r-rust.r-universe.dev/gifski'>gifski</a></span><span class='op'>)</span></span>
 <span></span>
 <span><span class='co'># Loading the dataset:</span></span>
 <span><span class='va'>incarceration</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"data/incarceration_trends.csv"</span><span class='op'>)</span></span>
@@ -1580,9 +1584,55 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>                             <span class='st'>"rural"</span> <span class='op'>=</span> <span class='st'>"Rural"</span>,</span>
 <span>                             <span class='st'>"small/mid"</span> <span class='op'>=</span> <span class='st'>"Small/Midsize"</span>,</span>
 <span>                             <span class='st'>"suburban"</span> <span class='op'>=</span> <span class='st'>"Suburban"</span>, </span>
-<span>                             <span class='st'>"urban"</span> <span class='op'>=</span> <span class='st'>"Urban"</span><span class='op'>)</span><span class='op'>)</span> </span>
+<span>                             <span class='st'>"urban"</span> <span class='op'>=</span> <span class='st'>"Urban"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Creating a barplot of the relationship between American county type and the incarceration rates for Americans from 1983-2006, using the `gganimate` package: </span></span>
 <span></span>
-<span><span class='co'># Creating a barplot of the relationship between American county type and the incarceration rates for Americans from year 2006: </span></span>
+<span><span class='co'># Creating the 'images' folder:</span></span>
+<span><span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.exists</a></span><span class='op'>(</span><span class='st'>"images"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span><span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span><span class='op'>(</span><span class='st'>"images"</span><span class='op'>)</span><span class='op'>}</span></span>
+<span></span>
+<span><span class='va'>prison_pop_plot</span> <span class='op'>&lt;-</span> <span class='va'>incarceration</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>year <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>year</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>urbanicity</span>, <span class='va'>year</span><span class='op'>)</span> <span class='op'>|&gt;</span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span></span>
+<span>    n <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    prison_prop <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>prison_prop</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
+<span>    .groups <span class='op'>=</span> <span class='st'>'drop'</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>urban_prop <span class='op'>=</span> <span class='va'>n</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span></span>
+<span>    cols <span class='op'>=</span> <span class='va'>prison_prop</span>,</span>
+<span>    names_to <span class='op'>=</span> <span class='st'>"Total Population"</span>,</span>
+<span>    values_to <span class='op'>=</span> <span class='st'>"urban_proportion"</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>urbanicity</span>,</span>
+<span>             y <span class='op'>=</span> <span class='va'>urban_proportion</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>,</span>
+<span>           position <span class='op'>=</span> <span class='st'>"dodge"</span>, </span>
+<span>           fill <span class='op'>=</span> <span class='st'>"maroon4"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"County Type &amp; Prison Incarceration in the US from 1983-2016"</span>, </span>
+<span>       x <span class='op'>=</span> <span class='st'>"American County Types"</span>, </span>
+<span>       y <span class='op'>=</span> <span class='st'>"Proportional Incarceration Rate of Civilians Age 15-64 (%)"</span>, </span>
+<span>       caption <span class='op'>=</span> <span class='st'>"Source: Vera Institute of Justice, 2020"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>prison_pop_plot_anim</span> <span class='op'>&lt;-</span> <span class='va'>prison_pop_plot</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://gganimate.com/reference/transition_time.html'>transition_time</a></span><span class='op'>(</span><span class='va'>year</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://gganimate.com/reference/ease_aes.html'>ease_aes</a></span><span class='op'>(</span><span class='st'>"linear"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://gganimate.com/reference/animate.html'>animate</a></span><span class='op'>(</span><span class='va'>prison_pop_plot_anim</span>, nframes <span class='op'>=</span> <span class='fl'>100</span>, rewind <span class='op'>=</span> <span class='cn'>TRUE</span>, height <span class='op'>=</span> <span class='fl'>500</span>, width <span class='op'>=</span> <span class='fl'>700</span>,</span>
+<span>        renderer <span class='op'>=</span> <span class='fu'><a href='https://gganimate.com/reference/renderers.html'>gifski_renderer</a></span><span class='op'>(</span><span class='st'>"images/prison_pop_animation.gif"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<figure>
+<img src="images/prison_pop_animation.gif" alt="Prison Incarceration Animation" />
+<figcaption aria-hidden="true">Prison Incarceration Animation</figcaption>
+</figure>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Creating a barplot of the relationship between American county type and the incarceration rates for Americans from year 2006: </span></span>
 <span><span class='va'>prison_pop_plot_06</span> <span class='op'>&lt;-</span> <span class='va'>incarceration</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2006</span><span class='op'>)</span> <span class='op'>|&gt;</span> </span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>urbanicity</span><span class='op'>)</span> <span class='op'>|&gt;</span> </span>
@@ -1608,7 +1658,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>       caption <span class='op'>=</span> <span class='st'>"Source: Vera Institute of Justice, 2020"</span><span class='op'>)</span></span>
 <span><span class='va'>prison_pop_plot_06</span></span></code></pre>
 </div>
-<img src="index_files/figure-html5/unnamed-chunk-1-1.png" width="624" />
+<img src="index_files/figure-html5/unnamed-chunk-3-1.png" width="624" />
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Creating a barplot of the relationship between American county type and the incarceration rates for Americans from year 2016: </span></span>
 <span><span class='va'>prison_pop_plot_16</span> <span class='op'>&lt;-</span> <span class='va'>incarceration</span> <span class='op'>|&gt;</span></span>
@@ -1636,7 +1686,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>       caption <span class='op'>=</span> <span class='st'>"Source: Vera Institute of Justice, 2020"</span><span class='op'>)</span></span>
 <span><span class='va'>prison_pop_plot_16</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-1-2.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-3-2.png" width="624" /></p>
 </div>
 <h4 id="the-research-design">The Research Design</h4>
 <p>This study will be using a cross-sectional research design; implicating two snapshots of incarceration trends data, from both 1983 and 2016.</p>
@@ -1688,7 +1738,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>                               <span class='st'>"Male"</span> <span class='op'>=</span> <span class='st'>"blue4"</span><span class='op'>)</span><span class='op'>)</span></span>
 <span><span class='va'>gender_prison_plot_06</span></span></code></pre>
 </div>
-<img src="index_files/figure-html5/unnamed-chunk-2-1.png" width="624" />
+<img src="index_files/figure-html5/unnamed-chunk-4-1.png" width="624" />
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Creating a barplot of the relationship between American county type and the incarceration rates for both Female and Male Americans from year 2016: </span></span>
 <span><span class='va'>gender_prison_plot_16</span> <span class='op'>&lt;-</span> <span class='va'>incarceration</span> <span class='op'>|&gt;</span></span>
@@ -1719,10 +1769,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>                               <span class='st'>"Male"</span> <span class='op'>=</span> <span class='st'>"blue4"</span><span class='op'>)</span><span class='op'>)</span></span>
 <span><span class='va'>gender_prison_plot_16</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-2-2.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-4-2.png" width="624" /></p>
 </div>
-<h4 id="interpretations-on-data-visualizations-pt.1">Interpretations on Data Visualizations Pt.1</h4>
-<p>[here]</p>
+<h4 id="interpretations-of-data-visualizations-pt.1">Interpretations of Data Visualizations Pt.1</h4>
+<p>In 2006 -</p>
+<p>In 2016 -</p>
 <h3 id="data-visualizations-pt.2-effect-of-american-county-type-on-prison-incarceration-by-race-in-2006-2016">Data Visualizations Pt.2: Effect of American County Type on Prison Incarceration (by Race) in 2006 &amp; 2016</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1734,7 +1785,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>         <span class='va'>native_prison_pop</span> <span class='op'>&gt;</span> <span class='fl'>0</span>, <span class='va'>native_pop_15to64</span> <span class='op'>&gt;</span> <span class='fl'>0</span>, </span>
 <span>         <span class='va'>white_prison_pop</span> <span class='op'>&gt;</span> <span class='fl'>0</span>, <span class='va'>white_pop_15to64</span> <span class='op'>&gt;</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
-<span>    Asian <span class='op'>=</span> <span class='op'>(</span><span class='va'>aapi_prison_pop</span> <span class='op'>/</span> <span class='va'>aapi_pop_15to64</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>100</span>,</span>
+<span>    AAPI <span class='op'>=</span> <span class='op'>(</span><span class='va'>aapi_prison_pop</span> <span class='op'>/</span> <span class='va'>aapi_pop_15to64</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>100</span>,</span>
 <span>    Black <span class='op'>=</span> <span class='op'>(</span><span class='va'>black_prison_pop</span> <span class='op'>/</span> <span class='va'>black_pop_15to64</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>100</span>, </span>
 <span>    Latinx <span class='op'>=</span> <span class='op'>(</span><span class='va'>latinx_prison_pop</span> <span class='op'>/</span> <span class='va'>latinx_pop_15to64</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>100</span>,</span>
 <span>    Native <span class='op'>=</span> <span class='op'>(</span><span class='va'>native_prison_pop</span> <span class='op'>/</span> <span class='va'>native_pop_15to64</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>100</span>,</span>
@@ -1752,7 +1803,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>urbanicity</span><span class='op'>)</span> <span class='op'>|&gt;</span> </span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span></span>
 <span>    n <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
-<span>    Asian <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>Asian</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
+<span>    AAPI <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>AAPI</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
 <span>    Black <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>Black</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>, </span>
 <span>    Latinx <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>Latinx</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>, </span>
 <span>    Native <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>Native</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
@@ -1760,7 +1811,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>    .groups <span class='op'>=</span> <span class='st'>'drop'</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>urban_prop <span class='op'>=</span> <span class='va'>n</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span></span>
-<span>    cols <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>Asian</span>, <span class='va'>Black</span>, <span class='va'>Latinx</span>, <span class='va'>Native</span>, <span class='va'>White</span><span class='op'>)</span>,</span>
+<span>    cols <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>AAPI</span>, <span class='va'>Black</span>, <span class='va'>Latinx</span>, <span class='va'>Native</span>, <span class='va'>White</span><span class='op'>)</span>,</span>
 <span>    names_to <span class='op'>=</span> <span class='st'>"Race"</span>,</span>
 <span>    values_to <span class='op'>=</span> <span class='st'>"urban_proportion"</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  </span>
@@ -1774,14 +1825,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>       x <span class='op'>=</span> <span class='st'>"American County Types"</span>, </span>
 <span>       y <span class='op'>=</span> <span class='st'>"Proportional Incarceration Rate of Civilians Age 15-64 (%)"</span>, </span>
 <span>       caption <span class='op'>=</span> <span class='st'>"Source: Vera Institute of Justice, 2020"</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Asian"</span> <span class='op'>=</span> <span class='st'>"violet"</span>,</span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"AAPI"</span> <span class='op'>=</span> <span class='st'>"violet"</span>,</span>
 <span>                               <span class='st'>"Black"</span> <span class='op'>=</span> <span class='st'>"navy"</span>,</span>
 <span>                               <span class='st'>"Latinx"</span> <span class='op'>=</span> <span class='st'>"red4"</span>, </span>
 <span>                               <span class='st'>"Native"</span> <span class='op'>=</span> <span class='st'>"green4"</span>,</span>
-<span>                               <span class='st'>"White"</span> <span class='op'>=</span> <span class='st'>"orange2"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span>                               <span class='st'>"White"</span> <span class='op'>=</span> <span class='st'>"orange2"</span><span class='op'>)</span>,</span>
+<span>                    labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"AAPI"</span> <span class='op'>=</span> <span class='st'>"AAPI"</span>,</span>
+<span>                               <span class='st'>"Black"</span> <span class='op'>=</span> <span class='st'>"Black"</span>, </span>
+<span>                               <span class='st'>"Latinx"</span> <span class='op'>=</span> <span class='st'>"Latinx"</span>, </span>
+<span>                               <span class='st'>"Native"</span> <span class='op'>=</span> <span class='st'>"Native American"</span>, </span>
+<span>                               <span class='st'>"White"</span> <span class='op'>=</span> <span class='st'>"White"</span><span class='op'>)</span><span class='op'>)</span></span>
 <span><span class='va'>race_prison_plot_06</span></span></code></pre>
 </div>
-<img src="index_files/figure-html5/unnamed-chunk-3-1.png" width="624" />
+<img src="index_files/figure-html5/unnamed-chunk-5-1.png" width="624" />
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Creating a barplot of the relationship between American county type and the incarceration rates for Asian, Black, Latinx, Native and White Americans from year 2016: </span></span>
 <span><span class='va'>race_prison_plot_16</span> <span class='op'>&lt;-</span> <span class='va'>incarceration</span> <span class='op'>|&gt;</span></span>
@@ -1789,7 +1845,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>urbanicity</span><span class='op'>)</span> <span class='op'>|&gt;</span> </span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span></span>
 <span>    n <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
-<span>    Asian <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>Asian</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
+<span>    AAPI <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>AAPI</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
 <span>    Black <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>Black</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>, </span>
 <span>    Latinx <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>Latinx</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>, </span>
 <span>    Native <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>Native</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
@@ -1797,7 +1853,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>    .groups <span class='op'>=</span> <span class='st'>'drop'</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>urban_prop <span class='op'>=</span> <span class='va'>n</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span></span>
-<span>    cols <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>Asian</span>, <span class='va'>Black</span>, <span class='va'>Latinx</span>, <span class='va'>Native</span>, <span class='va'>White</span><span class='op'>)</span>,</span>
+<span>    cols <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>AAPI</span>, <span class='va'>Black</span>, <span class='va'>Latinx</span>, <span class='va'>Native</span>, <span class='va'>White</span><span class='op'>)</span>,</span>
 <span>    names_to <span class='op'>=</span> <span class='st'>"Race"</span>,</span>
 <span>    values_to <span class='op'>=</span> <span class='st'>"urban_proportion"</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  </span>
@@ -1811,328 +1867,310 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>       x <span class='op'>=</span> <span class='st'>"American County Types"</span>, </span>
 <span>       y <span class='op'>=</span> <span class='st'>"Proportional Incarceration Rate of Civilians Age 15-64 (%)"</span>, </span>
 <span>       caption <span class='op'>=</span> <span class='st'>"Source: Vera Institute of Justice, 2020"</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Asian"</span> <span class='op'>=</span> <span class='st'>"violet"</span>,</span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"AAPI"</span> <span class='op'>=</span> <span class='st'>"violet"</span>,</span>
 <span>                               <span class='st'>"Black"</span> <span class='op'>=</span> <span class='st'>"navy"</span>,</span>
 <span>                               <span class='st'>"Latinx"</span> <span class='op'>=</span> <span class='st'>"red4"</span>, </span>
 <span>                               <span class='st'>"Native"</span> <span class='op'>=</span> <span class='st'>"green4"</span>,</span>
-<span>                               <span class='st'>"White"</span> <span class='op'>=</span> <span class='st'>"orange2"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span>                               <span class='st'>"White"</span> <span class='op'>=</span> <span class='st'>"orange2"</span><span class='op'>)</span>, </span>
+<span>                     labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"AAPI"</span> <span class='op'>=</span> <span class='st'>"AAPI"</span>,</span>
+<span>                               <span class='st'>"Black"</span> <span class='op'>=</span> <span class='st'>"Black"</span>, </span>
+<span>                               <span class='st'>"Latinx"</span> <span class='op'>=</span> <span class='st'>"Latinx"</span>, </span>
+<span>                               <span class='st'>"Native"</span> <span class='op'>=</span> <span class='st'>"Native American"</span>, </span>
+<span>                               <span class='st'>"White"</span> <span class='op'>=</span> <span class='st'>"White"</span><span class='op'>)</span><span class='op'>)</span></span>
 <span><span class='va'>race_prison_plot_16</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-3-2.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-5-2.png" width="624" /></p>
 </div>
-<h4 id="interpretations-on-data-visualizations-pt.2">Interpretations on Data Visualizations Pt.2</h4>
-<p>[here]</p>
-<h3 id="output-for-the-regressions-of-interest">Output for the Regressions of Interest</h3>
-<h4 id="female-regression-model">Female Regression Model</h4>
+<h4 id="interpretations-of-data-visualizations-pt.2">Interpretations of Data Visualizations Pt.2</h4>
+<p>In 2006 -</p>
+<p>In 2016 -</p>
+<h3 id="multiple-regression-model">Multiple Regression Model</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Filtering the data to `incarceration_filtered` to include only the data between 2006 and 2016: </span></span>
-<span><span class='va'>incarceration_filtered</span> <span class='op'>&lt;-</span> <span class='va'>incarceration</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>year</span> <span class='op'>&gt;=</span> <span class='fl'>2006</span> <span class='op'>&amp;</span> <span class='va'>year</span> <span class='op'>&lt;=</span><span class='fl'>2016</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Creating the `year_2006` and `year_2016` as binary variables to be used in the regression modeling: </span></span>
+<span><span class='va'>incarceration</span> <span class='op'>&lt;-</span> <span class='va'>incarceration</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>year_2006 <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2006</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span>,</span>
+<span>         year_2016 <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2016</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='co'># Creating the linear regression model for the `Female` group: </span></span>
-<span><span class='va'>fit_female</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Female</span> <span class='op'>~</span> <span class='va'>urbanicity</span>, data <span class='op'>=</span> <span class='va'>incarceration_filtered</span><span class='op'>)</span></span>
+<span><span class='co'># Forming a linear regression model between the `urbanicity.num` (the county type rating) and `prison_prop` (the proportion of the American population ages 15-64 that is imprisoned): </span></span>
+<span><span class='va'>incarceration.reg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>prison_prop</span> <span class='op'>~</span> <span class='va'>urbanicity</span>, data <span class='op'>=</span> <span class='va'>incarceration</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='co'># Tidying a regression table for the `Female` group: </span></span>
-<span><span class='va'>fit_female</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>term</span>, <span class='va'>estimate</span><span class='op'>)</span> <span class='op'>|&gt;</span>  </span>
-<span>  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span></span></code></pre>
+<span><span class='co'># Tidying the linear regression model into a table using the tidy() and knitr::kable() functions: </span></span>
+<span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>incarceration.reg</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span></span>
+<span>    Term <span class='op'>=</span> <span class='va'>term</span>, </span>
+<span>    Coefficient <span class='op'>=</span> <span class='va'>estimate</span>, </span>
+<span>    `Standard Error` <span class='op'>=</span> <span class='va'>std.error</span>, </span>
+<span>    `Test Statistic` <span class='op'>=</span> <span class='va'>statistic</span>, </span>
+<span>    `p-value` <span class='op'>=</span> <span class='va'>p.value</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
+<span>    Term <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case_when.html'>case_when</a></span><span class='op'>(</span></span>
+<span>      <span class='va'>Term</span> <span class='op'>==</span> <span class='st'>"(Intercept)"</span> <span class='op'>~</span> <span class='st'>"Intercept (Baseline)"</span>, </span>
+<span>      <span class='va'>Term</span> <span class='op'>==</span> <span class='st'>"urbanicitySmall/Midsize"</span> <span class='op'>~</span> <span class='st'>"Small/Midsize"</span>, </span>
+<span>      <span class='va'>Term</span> <span class='op'>==</span> <span class='st'>"urbanicitySuburban"</span> <span class='op'>~</span> <span class='st'>"Suburban"</span>, </span>
+<span>      <span class='va'>Term</span> <span class='op'>==</span> <span class='st'>"urbanicityUrban"</span> <span class='op'>~</span> <span class='st'>"Urban"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span></span></code></pre>
 </div>
-<table>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 16%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 11%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
+<th style="text-align: left;">Term</th>
+<th style="text-align: right;">Coefficient</th>
+<th style="text-align: right;">Standard Error</th>
+<th style="text-align: right;">Test Statistic</th>
+<th style="text-align: right;">p-value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">0.18</td>
+<td style="text-align: left;">Intercept (Baseline)</td>
+<td style="text-align: right;">0.797</td>
+<td style="text-align: right;">0.065</td>
+<td style="text-align: right;">12.194</td>
+<td style="text-align: right;">0.000</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">urbanicitySmall/Midsize</td>
-<td style="text-align: right;">-0.06</td>
+<td style="text-align: left;">Small/Midsize</td>
+<td style="text-align: right;">-0.128</td>
+<td style="text-align: right;">0.066</td>
+<td style="text-align: right;">-1.927</td>
+<td style="text-align: right;">0.054</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">urbanicitySuburban</td>
-<td style="text-align: right;">-0.11</td>
+<td style="text-align: left;">Suburban</td>
+<td style="text-align: right;">-0.366</td>
+<td style="text-align: right;">0.067</td>
+<td style="text-align: right;">-5.457</td>
+<td style="text-align: right;">0.000</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">urbanicityUrban</td>
-<td style="text-align: right;">-0.09</td>
+<td style="text-align: left;">Urban</td>
+<td style="text-align: right;">-0.119</td>
+<td style="text-align: right;">0.067</td>
+<td style="text-align: right;">-1.786</td>
+<td style="text-align: right;">0.074</td>
 </tr>
 </tbody>
 </table>
-</div>
-<h5 id="interpretations-of-female-regression-model">Interpretations of Female Regression Model</h5>
-<p>[here]</p>
-<h4 id="male-regression-model">Male Regression Model</h4>
-<div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Creating the linear regression model for the `Male` group: </span></span>
-<span><span class='va'>fit_male</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Male</span> <span class='op'>~</span> <span class='va'>urbanicity</span>, data <span class='op'>=</span> <span class='va'>incarceration_filtered</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Forming a multiple regression model between the `urbanicity.num` and `prison_prop`, controlling for the variables included in the above visualizations:</span></span>
+<span><span class='va'>incarceration.multreg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>prison_prop</span> <span class='op'>~</span> <span class='va'>urbanicity</span> <span class='op'>+</span> <span class='va'>year_2006</span> <span class='op'>+</span> <span class='va'>year_2016</span> <span class='op'>+</span> <span class='va'>Male</span> <span class='op'>+</span> <span class='va'>Female</span> <span class='op'>+</span> <span class='va'>AAPI</span> <span class='op'>+</span> <span class='va'>Black</span> <span class='op'>+</span> <span class='va'>Latinx</span> <span class='op'>+</span> <span class='va'>Native</span> <span class='op'>+</span> <span class='va'>White</span>, data <span class='op'>=</span> <span class='va'>incarceration</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='co'># Tidying a regression table for the `Male` group: </span></span>
-<span><span class='va'>fit_male</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>term</span>, <span class='va'>estimate</span><span class='op'>)</span> <span class='op'>|&gt;</span>  </span>
-<span>  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span></span></code></pre>
+<span><span class='co'># Tidying the multiple regression model into a table using the tidy() and knitr::kable() functions: </span></span>
+<span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>incarceration.multreg</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span></span>
+<span>    Term <span class='op'>=</span> <span class='va'>term</span>, </span>
+<span>    Coefficient <span class='op'>=</span> <span class='va'>estimate</span>, </span>
+<span>    `Standard Error` <span class='op'>=</span> <span class='va'>std.error</span>, </span>
+<span>    `Test Statistic` <span class='op'>=</span> <span class='va'>statistic</span>, </span>
+<span>    `p-value` <span class='op'>=</span> <span class='va'>p.value</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
+<span>    Term <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case_when.html'>case_when</a></span><span class='op'>(</span></span>
+<span>      <span class='va'>Term</span> <span class='op'>==</span> <span class='st'>"(Intercept)"</span> <span class='op'>~</span> <span class='st'>"Intercept (Baseline)"</span>, </span>
+<span>      <span class='va'>Term</span> <span class='op'>==</span> <span class='st'>"urbanicitySmall/Midsize"</span> <span class='op'>~</span> <span class='st'>"Small/Midsize"</span>, </span>
+<span>      <span class='va'>Term</span> <span class='op'>==</span> <span class='st'>"urbanicitySuburban"</span> <span class='op'>~</span> <span class='st'>"Suburban"</span>, </span>
+<span>      <span class='va'>Term</span> <span class='op'>==</span> <span class='st'>"urbanicityUrban"</span> <span class='op'>~</span> <span class='st'>"Urban"</span>, </span>
+<span>      <span class='va'>Term</span> <span class='op'>==</span> <span class='st'>"year_2006"</span> <span class='op'>~</span> <span class='st'>"2006"</span>, </span>
+<span>      <span class='va'>Term</span> <span class='op'>==</span> <span class='st'>"year_2016"</span> <span class='op'>~</span> <span class='st'>"2016"</span>, </span>
+<span>      <span class='va'>Term</span> <span class='op'>==</span> <span class='st'>"Male"</span> <span class='op'>~</span> <span class='st'>"Male"</span>, </span>
+<span>      <span class='va'>Term</span> <span class='op'>==</span> <span class='st'>"Female"</span> <span class='op'>~</span> <span class='st'>"Female"</span>, </span>
+<span>      <span class='va'>Term</span> <span class='op'>==</span> <span class='st'>"AAPI"</span> <span class='op'>~</span> <span class='st'>"AAPI"</span>, </span>
+<span>      <span class='va'>Term</span> <span class='op'>==</span> <span class='st'>"Black"</span> <span class='op'>~</span> <span class='st'>"Black"</span>, </span>
+<span>      <span class='va'>Term</span> <span class='op'>==</span> <span class='st'>"Latinx"</span> <span class='op'>~</span> <span class='st'>"Latinx"</span>, </span>
+<span>      <span class='va'>Term</span> <span class='op'>==</span> <span class='st'>"Native"</span> <span class='op'>~</span> <span class='st'>"Native American"</span>, </span>
+<span>      <span class='va'>Term</span> <span class='op'>==</span> <span class='st'>"White"</span> <span class='op'>~</span> <span class='st'>"White"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span></span></code></pre>
 </div>
-<table>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 16%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 11%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
+<th style="text-align: left;">Term</th>
+<th style="text-align: right;">Coefficient</th>
+<th style="text-align: right;">Standard Error</th>
+<th style="text-align: right;">Test Statistic</th>
+<th style="text-align: right;">p-value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">1.36</td>
+<td style="text-align: left;">Intercept (Baseline)</td>
+<td style="text-align: right;">0.011</td>
+<td style="text-align: right;">0.004</td>
+<td style="text-align: right;">2.909</td>
+<td style="text-align: right;">0.004</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">urbanicitySmall/Midsize</td>
-<td style="text-align: right;">-0.11</td>
+<td style="text-align: left;">Small/Midsize</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">0.003</td>
+<td style="text-align: right;">0.314</td>
+<td style="text-align: right;">0.754</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">urbanicitySuburban</td>
-<td style="text-align: right;">-0.59</td>
+<td style="text-align: left;">Suburban</td>
+<td style="text-align: right;">-0.008</td>
+<td style="text-align: right;">0.004</td>
+<td style="text-align: right;">-2.188</td>
+<td style="text-align: right;">0.029</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">urbanicityUrban</td>
-<td style="text-align: right;">-0.04</td>
+<td style="text-align: left;">Urban</td>
+<td style="text-align: right;">-0.001</td>
+<td style="text-align: right;">0.004</td>
+<td style="text-align: right;">-0.188</td>
+<td style="text-align: right;">0.851</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2006</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.002</td>
+<td style="text-align: right;">0.080</td>
+<td style="text-align: right;">0.936</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2016</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">0.122</td>
+<td style="text-align: right;">0.903</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">0.468</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">416.165</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">0.662</td>
+<td style="text-align: right;">0.012</td>
+<td style="text-align: right;">54.546</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AAPI</td>
+<td style="text-align: right;">-0.024</td>
+<td style="text-align: right;">0.003</td>
+<td style="text-align: right;">-7.493</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Black</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">1.187</td>
+<td style="text-align: right;">0.235</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Latinx</td>
+<td style="text-align: right;">0.004</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">3.288</td>
+<td style="text-align: right;">0.001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Native American</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">1.716</td>
+<td style="text-align: right;">0.086</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">White</td>
+<td style="text-align: right;">0.033</td>
+<td style="text-align: right;">0.003</td>
+<td style="text-align: right;">10.041</td>
+<td style="text-align: right;">0.000</td>
 </tr>
 </tbody>
 </table>
-</div>
-<h5 id="interpretations-of-male-regression-model">Interpretations of Male Regression Model</h5>
-<p>[here]</p>
-<h4 id="asian-regression-model">Asian Regression Model</h4>
-<div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Creating the linear regression model for the `Asian` group: </span></span>
-<span><span class='va'>fit_asian</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Asian</span> <span class='op'>~</span> <span class='va'>urbanicity</span>, data <span class='op'>=</span> <span class='va'>incarceration_filtered</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='co'># Tidying a regression table for the `Asian` group: </span></span>
-<span><span class='va'>fit_asian</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>term</span>, <span class='va'>estimate</span><span class='op'>)</span> <span class='op'>|&gt;</span>  </span>
-<span>  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Combining the regression modeling into one table using the `modelsummary()` function from the `modelsummary` package:</span></span>
+<span><span class='fu'>modelsummary</span><span class='fu'>::</span><span class='fu'><a href='https://modelsummary.com/man/modelsummary.html'>modelsummary</a></span><span class='op'>(</span></span>
+<span>  <span class='va'>incarceration.multreg</span>, </span>
+<span>  statistic <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"s.e. = {std.error}"</span>, <span class='st'>"p = {p.value}"</span><span class='op'>)</span>,</span>
+<span>  gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span>, </span>
+<span>  coef_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>    <span class='st'>"prison_prop"</span> <span class='op'>=</span> <span class='st'>"Prison Proportion"</span>, </span>
+<span>    <span class='st'>"urbanicity"</span> <span class='op'>=</span> <span class='st'>"County Type"</span>, </span>
+<span>    <span class='st'>"year_2006"</span> <span class='op'>=</span> <span class='st'>"2006"</span>, </span>
+<span>    <span class='st'>"year_2016"</span> <span class='op'>=</span> <span class='st'>"2016"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
-<table>
+<table style="width:36%;">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
+<th></th>
+<th><ol type="1">
+<li></li>
+</ol></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">0.56</td>
+<td>2006</td>
+<td>0.000</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">urbanicitySmall/Midsize</td>
-<td style="text-align: right;">-0.39</td>
+<td></td>
+<td>s.e. = 0.002</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">urbanicitySuburban</td>
-<td style="text-align: right;">-0.46</td>
+<td></td>
+<td>p = 0.936</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">urbanicityUrban</td>
-<td style="text-align: right;">-0.48</td>
+<td>2016</td>
+<td>0.000</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>s.e. = 0.001</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>p = 0.903</td>
+</tr>
+<tr class="odd">
+<td>Num.Obs.</td>
+<td>1789</td>
+</tr>
+<tr class="even">
+<td>R2</td>
+<td>0.998</td>
+</tr>
+<tr class="odd">
+<td>R2 Adj.</td>
+<td>0.998</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h5 id="interpretations-of-asian-regression-model">Interpretations of Asian Regression Model</h5>
+<h4 id="interpretations-of-multiple-regression-model">Interpretations of Multiple Regression Model</h4>
 <p>[here]</p>
-<h4 id="black-regression-model">Black Regression Model</h4>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Creating the linear regression model for the `Black` group: </span></span>
-<span><span class='va'>fit_black</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Black</span> <span class='op'>~</span> <span class='va'>urbanicity</span>, data <span class='op'>=</span> <span class='va'>incarceration_filtered</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='co'># Tidying a regression table for the `Black` group: </span></span>
-<span><span class='va'>fit_black</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>term</span>, <span class='va'>estimate</span><span class='op'>)</span> <span class='op'>|&gt;</span>  </span>
-<span>  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span></span></code></pre>
-</div>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">2.76</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">urbanicitySmall/Midsize</td>
-<td style="text-align: right;">0.03</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">urbanicitySuburban</td>
-<td style="text-align: right;">-0.87</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">urbanicityUrban</td>
-<td style="text-align: right;">-0.40</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h5 id="interpretations-of-black-regression-model">Interpretations of Black Regression Model</h5>
-<p>[here]</p>
-<h4 id="latinx-regression-model">Latinx Regression Model</h4>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Creating the linear regression model for the `Latinx` group: </span></span>
-<span><span class='va'>fit_latinx</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Latinx</span> <span class='op'>~</span> <span class='va'>urbanicity</span>, data <span class='op'>=</span> <span class='va'>incarceration_filtered</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='co'># Tidying a regression table for the `Latinx` group: </span></span>
-<span><span class='va'>fit_latinx</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>term</span>, <span class='va'>estimate</span><span class='op'>)</span> <span class='op'>|&gt;</span>  </span>
-<span>  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span></span></code></pre>
-</div>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">0.48</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">urbanicitySmall/Midsize</td>
-<td style="text-align: right;">0.27</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">urbanicitySuburban</td>
-<td style="text-align: right;">0.01</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">urbanicityUrban</td>
-<td style="text-align: right;">0.16</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h5 id="interpretations-of-latinx-regression-model">Interpretations of Latinx Regression Model</h5>
-<p>[here]</p>
-<h4 id="native-american-regression-model">Native American Regression Model</h4>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Creating the linear regression model for the `Native` group: </span></span>
-<span><span class='va'>fit_native</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Native</span> <span class='op'>~</span> <span class='va'>urbanicity</span>, data <span class='op'>=</span> <span class='va'>incarceration_filtered</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='co'># Tidying a regression table for the `Native` group: </span></span>
-<span><span class='va'>fit_native</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>term</span>, <span class='va'>estimate</span><span class='op'>)</span> <span class='op'>|&gt;</span>  </span>
-<span>  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span></span></code></pre>
-</div>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">1.76</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">urbanicitySmall/Midsize</td>
-<td style="text-align: right;">-0.37</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">urbanicitySuburban</td>
-<td style="text-align: right;">-0.71</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">urbanicityUrban</td>
-<td style="text-align: right;">-0.95</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h5 id="interpretations-of-native-american-regression-model">Interpretations of Native American Regression Model</h5>
-<p>[here]</p>
-<h4 id="white-regression-model">White Regression Model</h4>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Creating the linear regression model for the `White` group: </span></span>
-<span><span class='va'>fit_white</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>White</span> <span class='op'>~</span> <span class='va'>urbanicity</span>, data <span class='op'>=</span> <span class='va'>incarceration_filtered</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='co'># Tidying a regression table for the `White` group: </span></span>
-<span><span class='va'>fit_white</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>term</span>, <span class='va'>estimate</span><span class='op'>)</span> <span class='op'>|&gt;</span>  </span>
-<span>  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span></span></code></pre>
-</div>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">0.61</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">urbanicitySmall/Midsize</td>
-<td style="text-align: right;">-0.13</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">urbanicitySuburban</td>
-<td style="text-align: right;">-0.31</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">urbanicityUrban</td>
-<td style="text-align: right;">-0.28</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h5 id="interpretations-of-white-regression-model">Interpretations of White Regression Model</h5>
-<p>[here]</p>
-<h3 id="summative-interpretation">Summative Interpretation</h3>
-<p>of the plots &amp; of the regression (including interpreting the main coefficient of interest and describing if it is statistically significant and if we should interpret it causally)</p>
 <h2 id="conclusion">Conclusion</h2>
 <ol type="i">
 <li>summarizing results and assessing the extent to which you find support for your hypothesis; you should interpret (in plain English) the main coefficient of interest in your regression. You should also comment on the statistical significance of the estimated coefficient and whether or not you believe the coefficient to represent a causal effect; (ii) describing limitations of the analysis and threats to inference (missing data, confounding, etc), and stating how you could improve your analysis if you had more time/money (improved data that would be useful to collect).</li>
 </ol>
-<p><em>name code chunks</em></p>
 <p><em>use a function not from the packages discussed in class</em></p>
-<h1 id="extra-things">EXTRA THINGS:</h1>
-<p>VISUALIZATION 1:
-This bar graph displays the incarceration rate of American civilians between the ages of 15 and 64 as a function of county type, filtered by gender, male or female. The county type of American counties was determined as being either: Rural, Small/Midsize, Suburban, or Urban. The incarceration rate is here presented as a percent, calculated by finding the proportions within each county type of both incarcerated males and females. The above bars represent what percent of which gender was incarcerated in each county type.</p>
-<p>One of the most distinct relationships determined by this graph is that men are incarcerated at much higher rates than women are at all levels of county type. There are not drastic incarceration rates for women in any county type. The male demographic seems to tell a significantly different story. Urban men are incarcerated at the highest rates, suburban men at the lowest. Rural men have the second highest incarceration rates, followed by small/midsize communities in third. For women, the order of highest rates of incarceration to lowest goes as follows: Rural, Small/Midsize, Urban, then Suburban. Overall, there seems to be a correlation between county type and incarceration; not necessarily that a more or less populated place has higher or lower incarceration rates, but that each county type on its own draws together unique circumstances that influence their incarceration rates.</p>
-<p>VISUALIZATION 2:
-This bar graph displays the incarceration rate of American civilians between the ages of 15 and 64 as a function of county type, filtered by race, Asian, Black, Latinx, Native American, or White. Similarly to the first data visualization, the county type of American counties was determined as being either: Rural, Small/Midsize, Suburban, or Urban. The incarceration rate is here also presented as a percent, calculated by finding the proportions within each county type of incarcerated Asian, Black, Latinx, Native and White Americans. The bars above represent the percent at which each race was incarcerated in the different county types.</p>
-<p>The most distinct finding in this graph is how Black individuals are incarcerated at much higher rates than any other race in all county types. In Rural areas, Black and Native American individuals are incarcerated as significantly higher rates than both their Asian, Latin and white counterparts. In Small/Midsize, Suburban and Urban areas, Black individuals are incarcerated at the highest rates, followed by Native Americans, Latinx, White, then Asian individuals. Overall, minority communities are incarcerated at disproportionate rates across all county types. Similarly to the first data visualization, identity, race in this case, seems to have a profound impact on rates of incarceration, which a wider trend than county type alone. However, also similarly to the first data visualization, the degree of urbanization in different American county types does seem to create unique circumstances within itself that determines the rates at which different races are incarcerated.</p>
-<p>PRELIMINARY ANALYSIS OF THE RESEARCH QUESTION:</p>
-<p>So far, this analysis appears to be drawing together the conclusion that identity is a greater factor on incarceration that the county type an American citizen is living in. In the Gender graph, men are consistently incarcerated more than women in every county type. In the Race graph, Black Americans are incarcerated at significantly higher rates compared to all other races in every county type.</p>
-<p>Despite this, each county type does appear to be drawing together special circumstances that impact incarceration rates. In Rural communities, the incarceration rates are highest for men and women compared to all other county types. Also in Rural communities, Black, Native American, White and Asian communities see their highest rates of incarceration compared to all other county types. In Small/Midsize communities, men have the third highest and women have the second highest rates of incarceration. The rate of incarceration for Black Americans in Small/Midsize communities is nearly the same as their incarceration rate in Rural communities. This is also where the Latinx community faces their highest incarceration rates. In Suburban communities, there are the lowest incarceration rates for both men and women, as well as for Black, Latinx, White and Asian communities compared to all other county types. Urban communities see the second highest rate of incarceration for men and the second lowest for women. Black individuals are incarcerated at the highest rates, followed by Native Americans, Latinx, White, then Asian Americans.</p>
-<p>All considered, though the broadest trends of incarceration are not entirely dependent on county type summatively, each county community type individually does seem to create certain circumstances that impacts the differences in their incarceration rates.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
