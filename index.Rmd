@@ -32,7 +32,7 @@ As mentioned, the independent and dependent variables in the following study are
 
 *Note: No or minimal data was available for Non-Binary or Other Race categories within the Incarceration Trends Dataset; so these groups were not included in this study.*
 
-The dependent variable is the incarceration rate, which is calculated as the proportion of incarcerated individuals from an American county (based on their Gender of Race group) per un-incarcerated individuals (between ages 15 to 64) living in that same county (based of the same Gender or Race group). (The age group of 15 to 64 was chosen to depict the proportion of incarceration across both the most common and most eligible prison-age population.)
+The dependent variable is the incarceration rate, which is calculated as the proportion of incarcerated individuals from an American county (based on their Gender of Race group) per un-incarcerated individuals (between ages 15 to 64) living in that same county (the proportion taken from within the same Gender or Race group). (The age group of 15 to 64 was chosen to depict the proportion of incarceration across both the most common and most eligible prison-age population.)
 
 It is also important to note that all representations in the following study will either be presented as being data from either 2000 or 2016, a 10-year time frame of modern American prisons, presented for comparison. 
 
@@ -104,6 +104,7 @@ animate(prison_pop_plot_anim, nframes = 100, rewind = TRUE, height = 500, width 
 ```
 
 ![Prison Incarceration Animation](images/prison_pop_animation.gif)
+The above visualization displays the rates of prison incarceration for those ages 15-64 by American county type from 1970 to 2016, which presents well a depiction of the breadth of the research I will be sourcing my analyses from. 
 
 ```{r}
 # Creating a barplot of the relationship between American county type and the incarceration rates for Americans from year 2006: 
@@ -195,7 +196,7 @@ gender_prison_plot_06 <- incarceration |>
   pivot_longer(
     cols = c(Female, Male),
     names_to = "Gender",
-    values_to = "urban_proportion") |>
+    values_to = "urban_proportion")|>
   
   ggplot(aes(x = urbanicity,
              y = urban_proportion,
@@ -242,9 +243,11 @@ gender_prison_plot_16
 ```
 
 #### Interpretations of Data Visualizations Pt.1
-In 2006 - 
+In 2006, Male prison incarceration rates are significantly higher than Female incarceration rates in all county types. For men, Urban counties saw the highest incarceration rates (1.62%), then Rural counties (1.41%), Small/Midsize counties (1.28%), then with Suburban counties seeing the lowest rates (1.05%). For women, Rural counties saw the highest incarceration rates (0.15%), then Small/Midsize counties (0.12%), Urban counties (0.11%), then with Suburban counties seeing the lowest rates (0.10%).
 
-In 2016 - 
+In 2016, Male prison incarceration rates are also significantly higher than Female incarceration rates in all county types. For men, Rural counties saw the highest incarceration rates (1.42%), then Urban counties (1.27%), Small/Midsize counties (1.26%), then with Suburban counties seeing the lowest rates (1.00%). For women, Rural counties saw the highest incarceration rates (0.18%), then Small/Midsize counties (0.13%), Suburban counties (0.12%), then with Urban counties seeing the lowest rates (0.07%).
+
+Overall, over time and county type, Male incarceration is consistently significantly higher than Female incarceration. In both 2006 to 2016, Male incarceration was consistently higher in Rural and Urban counties over Small/Midsize and Suburban counties. Suburban counties consistently saw the lowest rates of incarceration for men. Female incarceration did not follow the same pattern; female incarceration, generally, declined as the county type became more urban. Rural counties consistently saw the highest rates of incarceration for women. Generally, incarceration rate levels for the men decreased from 2006 to 2016 and increased for women. 
 
 ### Data Visualizations Pt.2: Effect of American County Type on Prison Incarceration (by Race) in 2006 & 2016
 
@@ -351,11 +354,13 @@ race_prison_plot_16
 ```
 
 #### Interpretations of Data Visualizations Pt.2
-In 2006 - 
+In 2006, AAPI incarceration was highest in Rural counties (0.37%), then Small/Midsize counties (0.16%), Suburban counties (0.10%), with Urban counties seeing the lowest rates (0.09%). Black incarceration was highest in Small/Midsize counties (3.37%), then Urban counties (2.75%), Suburban counties (2.28%), with Rural counties seeing the lowest rates (0.55%). Latinx incarceration was highest in Small/Midsize counties (0.81%), then Urban counties (0.72%), Suburban counties (0.51%), with Rural counties seeing the lowest rates (0.32%). Native American incarceration was highest in Small/Midsize counties (1.24%), then Suburban counties (1.02%), Rural counties (0.90%), with Urban counties seeing the lowest rates (0.88%). White incarceration was highest in Small/Midsize counties (0.55%), then Urban counties (0.36%), Suburban counties (0.33%), with Rural counties seeing the lowest rates (0.25%).
 
-In 2016 -
+In 2016, AAPI incarceration was highest in Rural counties (1.22%), then Small/Midsize counties (0.15%), Urban counties (0.08%), with Suburban counties seeing the lowest rates (0.07%). Black incarceration was highest in Rural counties (3.25%), then Small/Midsize counties (2.34%), Urban counties (2.00%), with Suburban counties seeing the lowest rates (1.56%). Latinx incarceration was highest in Rural counties (0.86%), then Small/Midsize counties (0.72%), Urban counties (0.55%), with Suburban counties seeing the lowest rates (0.42%). Native American incarceration was highest in Rural counties (3.74%), then Small/Midsize counties (1.47%), Suburban counties (0.91%), with Urban counties seeing the lowest rates (0.75%). White incarceration was highest in Rural counties (0.48%), then Small/Midsize counties (0.43%), Urban counties (0.30%), with Suburban counties seeing the lowest rates (0.27%).
 
-### Multiple Regression Model 
+For the AAPI community, in both 2006 and 2016, incarceration rates were higher in Rural and Small/Midsize counties than in Suburban or Urban counties. This group also almost always had the lowest incarceration rates than any other group. For Black Americans, in both 2006 and 2016, their incarceration rates were always higher than every other group in Small/Midsize, Suburban and Urban counties. Similarly to the AAPI community, incarceration rates for Black Americans were usually higher in Rural and Small/Midsize counties than in Suburban or Urban counties. For the Latinx community, Small/Midsize counties, always saw higher incarceration rates than did Urban and Suburban counties. For Native Americans, Rural or Small/Midsize counties always saw the highest rates of incarceration and Urban counties saw the lowest rates of incarceration. For White Americans, Suburban and Urban counties saw lower rates of incarceration than Small/Midsize communities in both 2006 and 2016. Generally, most race groups saw similar incarceration rate levels between 2006 and 2016, with Native Americans seeing a drastic increase in 2016. In most cases, Rural or Small/Midsize counties trended to have higher incarceration rates in each racial group than Urban or Suburban counties. 
+
+### Multiple Regression Models 
 
 ```{r}
 
@@ -410,21 +415,9 @@ tidy(incarceration.multreg) |>
       Term == "Native" ~ "Native American", 
       Term == "White" ~ "White")) |>
   knitr::kable(digits = 3)
-
-# Combining the regression modeling into one table using the `modelsummary()` function from the `modelsummary` package:
-modelsummary::modelsummary(
-  incarceration.multreg, 
-  statistic = c("s.e. = {std.error}", "p = {p.value}"),
-  gof_map = c("nobs", "r.squared", "adj.r.squared"), 
-  coef_map = c(
-    "prison_prop" = "Prison Proportion", 
-    "urbanicity" = "County Type", 
-    "year_2006" = "2006", 
-    "year_2016" = "2016"))
 ```
 
-#### Interpretations of Multiple Regression Model
-[here]
+#### Interpretations of Multiple Regression Models
 
 ## Conclusion 
 
